@@ -1,0 +1,226 @@
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #4CAF50;
+    --danger-color: #f44336;
+    --background-color: #f5f5f5;
+    --surface-color: #ffffff;
+    --text-color: #333333;
+    --border-radius: 8px;
+    --spacing: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing);
+}
+
+header {
+    text-align: center;
+    margin-bottom: calc(var(--spacing) * 2);
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing);
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn.danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.controls {
+    display: flex;
+    gap: var(--spacing);
+    margin-bottom: calc(var(--spacing) * 2);
+    flex-wrap: wrap;
+}
+
+.url-input {
+    flex: 1;
+    display: flex;
+    gap: var(--spacing);
+}
+
+.url-input input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.modules-section {
+    background-color: var(--surface-color);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    margin-bottom: calc(var(--spacing) * 2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.module-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing);
+    border-bottom: 1px solid #eee;
+}
+
+.module-item:last-child {
+    border-bottom: none;
+}
+
+.module-title {
+    flex: 1;
+    cursor: pointer;
+}
+
+.module-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.preview-section {
+    background-color: var(--surface-color);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing);
+}
+
+#previewFrame {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+#codeEditor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--surface-color);
+    padding: calc(var(--spacing) * 2);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 800px;
+    z-index: 1000;
+}
+
+#codeEditor textarea {
+    width: 100%;
+    height: 300px;
+    margin-bottom: var(--spacing);
+    padding: var(--spacing);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.editor-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing);
+}
+
+.hidden {
+    display: none;
+}
+
+#offlineIndicator {
+    position: fixed;
+    bottom: var(--spacing);
+    right: var(--spacing);
+    background-color: var(--text-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: calc(var(--spacing) / 2);
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .url-input {
+        flex-direction: column;
+    }
+
+    .module-item {
+        flex-direction: column;
+        gap: var(--spacing);
+    }
+
+    .module-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #previewFrame {
+        height: 300px;
+    }
+
+    #codeEditor {
+        width: 95%;
+        padding: var(--spacing);
+    }
+
+    #codeEditor textarea {
+        height: 200px;
+    }
+}

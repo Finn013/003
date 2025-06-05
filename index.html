@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>ᓚᘏᗢ</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icon-192x192.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>ᓚᘏᗢ</h1>
+        </header>
+        
+        <div class="controls">
+            <button id="addFileBtn" class="btn primary">Открыть файл</button>
+            <button id="addCodeBtn" class="btn secondary">Вставить код</button>
+            <div class="url-input">
+                <input type="text" id="moduleUrl" placeholder="Введите URL">
+                <button id="loadUrlBtn" class="btn">Загрузить</button>
+            </div>
+        </div>
+
+        <section class="modules-section">
+            <h2>Подключенные модули</h2>
+            <div id="modulesList"></div>
+        </section>
+
+        <section class="preview-section">
+            <div class="preview-header">
+                <h2>Предпросмотр модуля</h2>
+                <button id="closePreviewBtn" class="btn danger">Закрыть</button>
+            </div>
+            <iframe id="previewFrame" sandbox="allow-scripts allow-same-origin"></iframe>
+        </section>
+
+        <div id="codeEditor" class="hidden">
+            <textarea id="codeInput" placeholder="Введите HTML/CSS/JavaScript код"></textarea>
+            <div class="editor-controls">
+                <button id="saveCodeBtn" class="btn primary">Сохранить</button>
+                <button id="cancelCodeBtn" class="btn">Отмена</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="offlineIndicator" class="hidden">
+        __________________________________
+    </div>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(function(reg) {
+      console.log('Service Worker зарегистрирован:', reg);
+    }).catch(function(e) {
+      console.error('Service Worker ошибка:', e);
+    });
+  }
+</script>
+    <script src="script.js"></script>
+</body>
+</html>
