@@ -50,15 +50,6 @@
     <div id="offlineIndicator" class="hidden">
         __________________________________
     </div>
-<script>
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(function(reg) {
-      console.log('Service Worker зарегистрирован:', reg);
-    }).catch(function(e) {
-      console.error('Service Worker ошибка:', e);
-    });
-  }
-</script>
     <script src="script.js"></script>
 </body>
 </html>
