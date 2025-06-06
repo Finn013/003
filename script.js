@@ -168,3 +168,24 @@ function closePreview() {
 
 // Инициализация
 renderModules();
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.classList.remove('hidden');
+});
+
+installBtn.addEventListener('click', () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(choice => {
+            if (choice.outcome === 'accepted') {
+                console.log('PWA установлена');
+            }
+            deferredPrompt = null;
+            installBtn.classList.add('hidden');
+        });
+    }
+});
